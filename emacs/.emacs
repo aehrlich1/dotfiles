@@ -163,9 +163,6 @@
    ("C-x C-x" . org-edit-src-exit)))
 
 (use-package org-agenda
-  :init
-  (add-hook 'org-agenda-mode-hook 'org-super-agenda-mode)
-  :requires org-super-agenda
   :config
   (setq org-agenda-window-setup 'current-window)
   (setq org-agenda-files '("~/Dropbox/emacs" "~/Dropbox/emacs/roam" "~/Dropbox/emacs/roam/daily"))
