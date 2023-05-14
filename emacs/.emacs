@@ -1,5 +1,10 @@
 ;; -*- lexical-binding: t; -*-
-(require 'package)
+(setq package-user-dir "~/.config/emacs/.emacs.d/elpa")
+(setq-default user-emacs-directory "~/.config/emacs/.emacs.d/")
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(setq-default default-directory "~/Dropbox/emacs/")
+(package-initialize)
+
 (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
@@ -25,9 +30,6 @@
 (add-to-list 'initial-frame-alist '(font . "Fira Code-11.5"))
 (add-to-list 'default-frame-alist '(font . "Fira Code-11.5"))
 
-(setq default-directory "~/Dropbox/emacs/")
-(setq user-emacs-directory "~/.config/emacs/.emacs.d/")
-(setq custom-file (concat user-emacs-directory "custom.el"))
 (setq inhibit-startup-screen t)
 (setq ring-bell-function 'ignore)
 (setq auto-save-default nil)
