@@ -188,6 +188,24 @@
   :bind
   (("C-c a" . org-agenda)))
 
+(use-package org-journal
+  :ensure t
+  :init(blink-cursor-mode 0)
+  :bind
+  ("C-j" . org-journal-new-entry)
+  (:map org-journal-mode-map)
+  ("C-c C-s" . nil)
+  ("C-c C-s" . org-schedule)
+  ("C-c s" . org-journal-search)
+  :custom
+  (org-journal-file-type 'daily)
+  (org-journal-dir "~/Dropbox/emacs/journal")
+  (org-journal-date-format "%Y-%m-%d %A W:%V")
+  (org-journal-file-format "%Y-%m-%d.org")
+  :config
+  (setq org-journal-hide-entries-p 'nil)
+  (setq org-journal-find-file 'find-file))
+
 (use-package org-roam
   :ensure t
   :custom
