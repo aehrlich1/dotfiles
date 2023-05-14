@@ -5,4 +5,4 @@ source ./helper/symlink.sh
 source ./helper/vars.sh
 
 print_header "Emacs"
-symlink "$DOTFILE/emacs/.emacs" "$HOME/.emacs"
+symlink "$DOTFILES/emacs/.emacs" "$HOME/.emacs"
