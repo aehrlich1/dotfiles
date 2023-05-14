@@ -27,8 +27,8 @@
 
 (setq mac-command-modifier 'meta)
 (setq mac-right-option-modifier nil)
-(add-to-list 'initial-frame-alist '(font . "Fira Code-11.5"))
-(add-to-list 'default-frame-alist '(font . "Fira Code-11.5"))
+(add-to-list 'initial-frame-alist '(font . "Fira Code-12.0"))
+(add-to-list 'default-frame-alist '(font . "Fira Code-12.0"))
 
 (setq inhibit-startup-screen t)
 (setq ring-bell-function 'ignore)
