@@ -1,0 +1,6 @@
+[core]
+	autocrlf = true
+	editor = notepad++
+[user]
+	email = anatol.ehrlich@gmail.com
+	name = aehrlich1
