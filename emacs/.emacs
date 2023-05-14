@@ -65,6 +65,8 @@
 (global-unset-key (kbd "C-x C-c"))
 (global-set-key (kbd "C-x ESC") 'save-buffers-kill-terminal)
 (global-set-key (kbd "C-x r l") 'bookmark-jump)
+(global-set-key (kbd "C-x 2") (lambda () (interactive) (split-window-vertically) (other-window 1)))
+(global-set-key (kbd "C-x 3") (lambda () (interactive) (split-window-horizontally) (other-window 1)))
 
 (use-package counsel
   :ensure t
