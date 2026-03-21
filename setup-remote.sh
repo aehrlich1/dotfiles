@@ -33,8 +33,8 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Source updated .bashrc to pick up any changes
-source ~/.bashrc
+# Source updated .bashrc to pick up any changes (if it exists)
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 
 echo "Installing packages..."
 brew install duckdb duf dust eza fastfetch fd fish fzf gh htop jq lazydocker lazygit neovim node ripgrep ruff sevenzip tree-sitter-cli tmux uv visidata wget yazi zoxide
