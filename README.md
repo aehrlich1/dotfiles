@@ -1,6 +1,6 @@
 # Dotfiles
 
-This repository contains personal configuration for tools like Fish, tmux, Neovim, LazyGit, and more. Each directory under the repo mirrors the structure expected inside `~/.config`, and the helper scripts take care of provisioning dependencies and linking the configs.
+This repository contains personal configuration for tools like Fish, tmux, Neovim, LazyGit, and more. Each directory under the repo mirrors the structure expected inside `~/.config`, and the helper scripts take care of provisioning dependencies (requires `git` up front) and linking the configs.
 
 ## Usage
 
