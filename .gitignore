@@ -1,0 +1,24 @@
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor and tool backups
+*~
+*.swp
+*.swo
+*.bak
+
+# Logs and runtime files
+*.log
+*.tmp
+
+# Secrets and local overrides
+.env
+.env.*
+*.secret
+*.secrets
+*.key
+*.pem
+*.crt
+secrets/
+fish/conf.d/config.local.fish
