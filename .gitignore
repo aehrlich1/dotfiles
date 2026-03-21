@@ -22,3 +22,4 @@ Thumbs.db
 *.crt
 secrets/
 fish/conf.d/config.local.fish
+fish/fish_variables
