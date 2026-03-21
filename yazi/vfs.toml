@@ -1,0 +1,12 @@
+[services.slurm-login]
+type = "sftp"
+host = "slurm.cs.univie.ac.at"
+user = "anatole93cs"
+port = 22
+
+[services.lisc01]
+type = "sftp"
+host = "login01.lisc.univie.ac.at"
+user = "ehrlich"
+port = 22
+

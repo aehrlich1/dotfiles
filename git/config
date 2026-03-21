@@ -1,0 +1,13 @@
+[core]
+	editor = nvim
+	autocrlf = input
+[user]
+	name = aehrlich1
+	email = anatol.ehrlich@gmail.com
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[init]
+	defaultBranch = main

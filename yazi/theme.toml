@@ -1,0 +1,9 @@
+[status]
+separator_open  = ""
+separator_close = ""
+
+[icon]
+dirs = []
+files = []
+exts = []
+conds = []

@@ -1,0 +1,33 @@
+[mgr]
+linemode = "size"
+show_hidden = true
+title_format = ""
+
+[opener]
+editor = [
+  { run = 'cd %s && $EDITOR .', block = true, desc = "$EDITOR" }
+]
+nvim-starter = [
+  { run = 'cd %s && NVIM_APPNAME="nvim-starter" nvim .', block = true, desc = "nvim-starter" }
+]
+emacs = [
+  { run = 'emacs -nw %s', block = true },
+]
+code = [
+  { run = 'code %s', orphan = true },
+]
+visidata = [
+  { run = 'visidata %s', block = true },
+]
+
+
+[open]
+prepend_rules = [
+  { url = "*.csv", use = ["visidata", "edit"] },
+  { url = "*.org", use = "emacs" },
+  { url = "*.svg", use = ["edit", "open"] },
+]
+append_rules = [
+  { url = "*/", use = ["editor", "nvim-starter", "reveal", "code"] },
+]
+
