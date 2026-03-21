@@ -14,8 +14,6 @@ set EDITOR nvim
 set VISUAL nvim
 set -gx XDG_CONFIG_HOME ~/.config
 set -x ESCDELAY 0
-export EDITOR
-export VISUAL
 
 # fzf
 fzf --fish | source
