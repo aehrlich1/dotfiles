@@ -65,7 +65,5 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 2>/dev/null ||
 
 echo "Done."
 
-# TODO: conda (though that should be a separate script, or be set as a flag during installation)
 # TODO: configure fish shell as login shell
-# TODO: install nvtop (if GPU is found)
 # TODO: add option to not install AI tools
