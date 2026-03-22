@@ -41,7 +41,7 @@ if [[ -f ~/.bashrc ]]; then
 fi
 
 echo "Installing packages..."
-brew install duckdb duf dust eza fastfetch fd fish fzf gh htop jq lazydocker lazygit neovim node ripgrep ruff sevenzip tree-sitter-cli tmux uv visidata wget yazi zoxide
+brew install duckdb duf dust eza fastfetch fd fish fzf gh git htop jq lazydocker lazygit neovim node ripgrep ruff sevenzip tree-sitter-cli tmux uv visidata wget yazi zoxide
 
 # Install Claude Code
 echo "Installing Claude Code..."
