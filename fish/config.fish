@@ -5,7 +5,6 @@ alias gc="gcloud"
 alias lg="lazygit"
 alias ld="lazydocker"
 alias t="tmux"
-alias vim="nvim"
 alias nvims='NVIM_APPNAME="nvim-starter" nvim'
 alias w="z"
 
