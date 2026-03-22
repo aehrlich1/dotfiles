@@ -5,7 +5,7 @@ This repository contains personal configuration for tools like Fish, tmux, Neovi
 ## Usage
 
 ```bash
-git clone https://github.com/anatol/dotfiles.git ~/dotfiles
+git clone https://github.com/aehrlich1/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
