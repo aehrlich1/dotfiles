@@ -44,3 +44,9 @@ To configure fish as your login shell:
 command -v fish | sudo tee -a /etc/shells
 sudo chsh -s "$(command -v fish)" <username>
 ```
+
+Place this in `~/.config/fish/conf.d/config.local.fish`
+
+```bash
+eval "$(<Homebrew prefix path>/bin/brew shellenv)"
+```
