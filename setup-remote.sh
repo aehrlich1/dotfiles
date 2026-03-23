@@ -1,6 +1,35 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+INSTALL_AI_TOOLS=false
+
+usage() {
+  cat <<'EOF'
+Usage: setup-remote.sh [--with-ai-tools]
+
+  --with-ai-tools    Install Node and the AI CLIs (Claude Code, Codex, Gemini).
+                     By default these tools are skipped.
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  --with-ai-tools)
+    INSTALL_AI_TOOLS=true
+    ;;
+  -h | --help)
+    usage
+    exit 0
+    ;;
+  *)
+    echo "Unknown option: $1" >&2
+    usage >&2
+    exit 1
+    ;;
+  esac
+  shift
+done
+
 # Ensure apt is available
 if ! command -v apt &>/dev/null; then
   echo "Error: apt is not available on this system." >&2
@@ -41,19 +70,53 @@ if [[ -f ~/.bashrc ]]; then
 fi
 
 echo "Installing packages..."
-brew install duckdb duf dust eza fastfetch fd fish fzf gh git htop jq lazydocker lazygit neovim node ripgrep ruff sevenzip tree-sitter-cli tmux uv visidata wget yazi zoxide
+BREW_PACKAGES=(
+  duckdb
+  duf
+  dust
+  eza
+  fastfetch
+  fd
+  fish
+  fzf
+  gh
+  git
+  htop
+  jq
+  lazydocker
+  lazygit
+  neovim
+  ripgrep
+  ruff
+  sevenzip
+  tree-sitter-cli
+  tmux
+  uv
+  visidata
+  wget
+  yazi
+  zoxide
+)
+if "$INSTALL_AI_TOOLS"; then
+  BREW_PACKAGES+=(node)
+fi
+brew install "${BREW_PACKAGES[@]}"
 
-# Install Claude Code
-echo "Installing Claude Code..."
-npm install -g @anthropic-ai/claude-code
+if "$INSTALL_AI_TOOLS"; then
+  # Install Claude Code
+  echo "Installing Claude Code..."
+  npm install -g @anthropic-ai/claude-code
 
-# Install OpenAI Codex
-echo "Installing Codex..."
-npm install -g @openai/codex
+  # Install OpenAI Codex
+  echo "Installing Codex..."
+  npm install -g @openai/codex
 
-# Install Gemini CLI
-echo "Installing Gemini CLI..."
-npm install -g @google/gemini-cli
+  # Install Gemini CLI
+  echo "Installing Gemini CLI..."
+  npm install -g @google/gemini-cli
+else
+  echo "Skipping Claude Code, Codex, Gemini, and Node (pass --with-ai-tools to install)."
+fi
 
 # Install turm
 echo "Installing turm..."
@@ -64,6 +127,3 @@ echo "Installing Tmux Plugin Manager..."
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 2>/dev/null || echo "TPM already installed."
 
 echo "Done."
-
-# TODO: configure fish shell as login shell
-# TODO: add option to not install AI tools

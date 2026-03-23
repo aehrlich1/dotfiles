@@ -34,6 +34,8 @@ cd ~/dotfiles
 
 The `install.sh` script first runs `setup-remote.sh` to install required packages (APT, Homebrew, CLI tools, etc.) and then invokes `link-configs.sh` to symlink every configuration directory from the repo into `~/.config`.
 
+To include the optional AI tooling (Claude Code, Codex, Gemini, and Node), pass `--with-ai-tools` to either `install.sh` or `setup-remote.sh`. By default these tools are skipped.
+
 For machine-specific Fish tweaks, add them to `fish/conf.d/config.local.fish`; the directory is already sourced by Fish, but the file is ignored so local overrides stay untracked.
 
 ## fish
