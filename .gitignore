@@ -23,3 +23,4 @@ Thumbs.db
 secrets/
 fish/conf.d/config.local.fish
 fish/fish_variables
+nvim/lazy-lock.json
