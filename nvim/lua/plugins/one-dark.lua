@@ -7,7 +7,6 @@ return {
       transparent = true,
       code_style = {
         comments = "none",
-        variable = "none",
       },
       colors = {
         purple = "#d19a66",
