@@ -6,6 +6,14 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      indent = {
+        indent = {
+          char = "▏",
+        },
+        scope = {
+          enabled = false,
+        },
+      },
       explorer = {
         replace_netrw = false,
       },
