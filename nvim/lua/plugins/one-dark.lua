@@ -15,8 +15,8 @@ return {
         cyan = "#abb2bf",
       },
       highlights = {
-        SnacksIndent = { fg = "#5C6370" },
-        SnacksIndentScope = { fg = "#5C6370" },
+        SnacksIndent = { fg = "#44484F" },
+        SnacksIndentScope = { fg = "#44484F" },
         ["@type"] = { fmt = "none" },
         ["@constructor"] = { fmt = "none" },
         ["@function.builtin"] = { fg = "#8686be", fmt = "none" },
