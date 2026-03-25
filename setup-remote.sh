@@ -89,6 +89,7 @@ BREW_PACKAGES=(
   ripgrep
   ruff
   sevenzip
+  tldr
   tree-sitter-cli
   tmux
   uv
