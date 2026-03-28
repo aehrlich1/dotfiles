@@ -1,4 +1,3 @@
-alias .="nvim ."
 alias csv="visidata"
 alias e="eza -l -a --no-user"
 alias gc="gcloud"
@@ -6,6 +5,7 @@ alias lg="lazygit"
 alias ld="lazydocker"
 alias t="tmux"
 alias nvims='NVIM_APPNAME="nvim-starter" nvim'
+alias v="nvim"
 alias w="z"
 
 set fish_greeting
