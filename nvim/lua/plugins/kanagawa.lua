@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     require("kanagawa").setup({
-      transparent = true,
+      -- transparent = true,
     })
     -- vim.cmd 'colorscheme kanagawa'
   end,

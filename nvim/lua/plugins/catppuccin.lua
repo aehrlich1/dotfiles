@@ -4,11 +4,6 @@ return {
   config = function()
     require("catppuccin").setup({
       flavour = "frappe",
-      color_overrides = {
-        all = {
-          base = "#282c34",
-        },
-      },
       no_italic = true,
     })
   end,
