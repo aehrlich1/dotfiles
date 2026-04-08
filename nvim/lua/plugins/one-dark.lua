@@ -30,6 +30,6 @@ return {
         ["@label"] = { fmt = "none" },
       },
     })
-    require("onedark").load()
+    -- require("onedark").load()
   end,
 }
