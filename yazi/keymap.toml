@@ -14,6 +14,11 @@ run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 [[mgr.prepend_keymap]]
+on = "<C-o>"
+run = 'shell "$EDITOR ." --block'
+desc = "Open current directory in nvim"
+
+[[mgr.prepend_keymap]]
 on = ["g", "s"]
 run = "cd ~/src"
 desc = "Go to source directory"
