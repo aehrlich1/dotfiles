@@ -2,8 +2,9 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+vim.g.maplocalleader = " "
 vim.g.snacks_animate = false
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
-vim.opt.conceallevel = 0 -- Show markup syntax in makrdown files
+vim.opt.conceallevel = 0 -- Show markup syntax in markdown files
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }

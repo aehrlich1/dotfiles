@@ -1,3 +1,6 @@
+[flavor]
+dark = "catppuccin-macchiato"
+
 [status]
 separator_open  = ""
 separator_close = ""
