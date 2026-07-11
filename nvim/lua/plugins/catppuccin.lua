@@ -5,7 +5,7 @@ return {
     name = "catppuccin",
     priority = 1000, -- make sure to load this before all the other start plugins
     opts = {
-      flavour = "macchiato",
+      flavour = "mocha",
       no_italic = true,
     },
   },
@@ -14,7 +14,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-macchiato",
+      colorscheme = "catppuccin-mocha",
     },
   },
 }
