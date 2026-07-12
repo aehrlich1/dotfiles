@@ -71,7 +71,6 @@ fi
 
 echo "Installing packages..."
 BREW_PACKAGES=(
-  duckdb
   duf
   dust
   eza
