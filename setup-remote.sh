@@ -81,6 +81,7 @@ BREW_PACKAGES=(
   fzf
   gh
   git
+  glow
   htop
   jq
   lazydocker
