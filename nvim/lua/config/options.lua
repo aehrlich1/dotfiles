@@ -6,5 +6,6 @@ vim.g.maplocalleader = " "
 vim.g.snacks_animate = false
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+vim.g.lazyvim_python_lsp = "pyright"
 vim.opt.conceallevel = 0 -- Show markup syntax in markdown files
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
