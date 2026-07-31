@@ -85,6 +85,7 @@ BREW_PACKAGES=(
   jq
   lazydocker
   lazygit
+  ncdu
   neovim
   ripgrep
   ruff
