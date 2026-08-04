@@ -13,9 +13,6 @@ prepend_previewers = [
 editor = [
   { run = 'cd %s && $EDITOR .', block = true, desc = "$EDITOR" }
 ]
-nvim-starter = [
-  { run = 'cd %s && NVIM_APPNAME="nvim-starter" nvim .', block = true, desc = "nvim-starter" }
-]
 emacs = [
   { run = 'emacs -nw %s', block = true },
 ]
@@ -34,6 +31,6 @@ prepend_rules = [
   { url = "*.svg", use = ["edit", "open"] },
 ]
 append_rules = [
-  { url = "*/", use = ["editor", "nvim-starter", "reveal", "code"] },
+  { url = "*/", use = ["editor", "reveal", "code"] },
 ]
 
