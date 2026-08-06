@@ -7,7 +7,7 @@ usage() {
   cat <<'EOF'
 Usage: setup-remote.sh [--with-ai-tools]
 
-  --with-ai-tools    Install Node and the AI CLIs (Claude Code, Codex, Gemini).
+  --with-ai-tools    Install the AI CLIs (Claude Code, Codex, Gemini).
                      By default these tools are skipped.
 EOF
 }
@@ -87,6 +87,7 @@ BREW_PACKAGES=(
   lazygit
   ncdu
   neovim
+  node
   ripgrep
   ruff
   sevenzip
@@ -99,9 +100,6 @@ BREW_PACKAGES=(
   yazi
   zoxide
 )
-if "$INSTALL_AI_TOOLS"; then
-  BREW_PACKAGES+=(node)
-fi
 brew install "${BREW_PACKAGES[@]}"
 
 if "$INSTALL_AI_TOOLS"; then
@@ -117,7 +115,7 @@ if "$INSTALL_AI_TOOLS"; then
   echo "Installing Gemini CLI..."
   npm install -g @google/gemini-cli
 else
-  echo "Skipping Claude Code, Codex, Gemini, and Node (pass --with-ai-tools to install)."
+  echo "Skipping Claude Code, Codex, and Gemini (pass --with-ai-tools to install)."
 fi
 
 # Install turm
