@@ -1,40 +1,50 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INSTALL_AI_TOOLS=false
+if [[ $# -gt 0 ]]; then
+  echo "Error: setup-remote.sh takes no arguments (got: $*)." >&2
+  echo "The AI CLIs are now chosen interactively during setup." >&2
+  exit 1
+fi
 
-usage() {
-  cat <<'EOF'
-Usage: setup-remote.sh [--with-ai-tools]
+# Optional AI CLIs offered during setup, as "label:npm package".
+AI_TOOLS=(
+  "Claude Code:@anthropic-ai/claude-code"
+  "Codex:@openai/codex"
+  "Gemini CLI:@google/gemini-cli"
+)
 
-  --with-ai-tools    Install the AI CLIs (Claude Code, Codex, Gemini).
-                     By default these tools are skipped.
-EOF
+# Ask a yes/no question. An empty answer, or no terminal to ask on, means yes.
+prompt_yes_no() {
+  local question="$1" reply
+  if [[ ! -t 0 ]]; then
+    echo "${question} [Y/n] y (no terminal attached, using the default)"
+    return 0
+  fi
+  while true; do
+    read -r -p "${question} [Y/n] " reply || reply=""
+    case "$reply" in
+    "" | [Yy] | [Yy][Ee][Ss]) return 0 ;;
+    [Nn] | [Nn][Oo]) return 1 ;;
+    *) echo "Please answer y or n." ;;
+    esac
+  done
 }
-
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-  --with-ai-tools)
-    INSTALL_AI_TOOLS=true
-    ;;
-  -h | --help)
-    usage
-    exit 0
-    ;;
-  *)
-    echo "Unknown option: $1" >&2
-    usage >&2
-    exit 1
-    ;;
-  esac
-  shift
-done
 
 # Ensure apt is available
 if ! command -v apt &>/dev/null; then
   echo "Error: apt is not available on this system." >&2
   exit 1
 fi
+
+# Ask up front so the rest of the install can run unattended.
+SELECTED_AI_TOOLS=()
+echo "Optional AI CLIs:"
+for tool in "${AI_TOOLS[@]}"; do
+  if prompt_yes_no "  Install ${tool%%:*}?"; then
+    SELECTED_AI_TOOLS+=("$tool")
+  fi
+done
 
 echo "Updating apt and installing prerequisites..."
 sudo apt update && sudo apt install -y curl git
@@ -88,6 +98,7 @@ BREW_PACKAGES=(
   ncdu
   neovim
   node
+  nvtop
   ripgrep
   ruff
   sevenzip
@@ -102,20 +113,13 @@ BREW_PACKAGES=(
 )
 brew install "${BREW_PACKAGES[@]}"
 
-if "$INSTALL_AI_TOOLS"; then
-  # Install Claude Code
-  echo "Installing Claude Code..."
-  npm install -g @anthropic-ai/claude-code
-
-  # Install OpenAI Codex
-  echo "Installing Codex..."
-  npm install -g @openai/codex
-
-  # Install Gemini CLI
-  echo "Installing Gemini CLI..."
-  npm install -g @google/gemini-cli
+if ((${#SELECTED_AI_TOOLS[@]} > 0)); then
+  for tool in "${SELECTED_AI_TOOLS[@]}"; do
+    echo "Installing ${tool%%:*}..."
+    npm install -g "${tool##*:}"
+  done
 else
-  echo "Skipping Claude Code, Codex, and Gemini (pass --with-ai-tools to install)."
+  echo "No AI CLIs selected."
 fi
 
 # Install turm
