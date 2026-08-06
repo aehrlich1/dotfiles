@@ -7,6 +7,7 @@ alias t="tmux"
 alias nvims='NVIM_APPNAME="nvim-starter" nvim'
 alias v="nvim"
 alias w="z"
+alias wi="zi"
 
 set fish_greeting
 set EDITOR nvim
