@@ -1,12 +1,15 @@
-[services.slurm-login]
-type = "sftp"
+[sftp.slurm-login]
 host = "slurm.cs.univie.ac.at"
 user = "anatole93cs"
 port = 22
 
-[services.lisc01]
-type = "sftp"
+[sftp.lisc01]
 host = "login01.lisc.univie.ac.at"
 user = "ehrlich"
 port = 22
 
+[sftp.alp-bio-dev-1]
+host = "localhost"
+user = "anatol"
+port = 2222
+key_file = "~/.ssh/google_compute_engine"
