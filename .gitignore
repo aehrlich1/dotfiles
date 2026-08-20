@@ -24,3 +24,6 @@ secrets/
 fish/conf.d/config.local.fish
 fish/fish_variables
 nvim/lazy-lock.json
+
+# TPM-managed tmux plugin checkouts
+tmux/plugins/

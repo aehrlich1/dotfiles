@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 if [[ $# -gt 0 ]]; then
   echo "Error: setup-remote.sh takes no arguments (got: $*)." >&2
   echo "The AI CLIs are now chosen interactively during setup." >&2
@@ -126,8 +128,11 @@ fi
 echo "Installing turm..."
 uv tool install turm
 
-# Install Tmux plugin manager
+# Install Tmux plugin manager. tmux.conf loads TPM from
+# ~/.config/tmux/plugins/tpm, but link-configs.sh has not run yet; cloning there
+# would leave ~/.config/tmux a real directory and stop it being symlinked. Clone
+# into the repo instead, which is what that path resolves to once linked.
 echo "Installing Tmux Plugin Manager..."
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 2>/dev/null || echo "TPM already installed."
+git clone https://github.com/tmux-plugins/tpm "${SCRIPT_DIR}/tmux/plugins/tpm" 2>/dev/null || echo "TPM already installed."
 
 echo "Done."
